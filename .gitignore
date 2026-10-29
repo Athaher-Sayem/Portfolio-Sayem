@@ -1,6 +1,8 @@
-__pycache__/
-.pytest_cache/
 node_modules/
-.venv/
-audit/artifacts/
-audit/lighthouse*.json
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+playwright-report/
+test-results/
+.DS_Store

@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0a0b;
+  --color-surface: #111113;
+  --color-raised: #17171a;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-soft: rgba(255, 255, 255, 0.06);
+  --color-text: #ecece9;
+  --color-muted: #9f9fa5;
+  --color-faint: #6d6d74;
+  --color-accent: #d4ff4f;
+  --color-accent-ink: #9cbb3c;
+  --color-accent-soft: rgba(212, 255, 79, 0.12);
+
+  --font-display: var(--font-instrument), Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --bg: #0a0a0b;
+  --fg: #ecece9;
+  --muted: #9f9fa5;
+  --surface: #111113;
+  --raised: #17171a;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #d4ff4f;
+  --accent-ink: #9cbb3c;
+  --accent-soft: rgba(212, 255, 79, 0.12);
+}
+
+html.light {
+  --bg: #f5f4f0;
+  --fg: #141416;
+  --muted: #5c5c64;
+  --surface: #ffffff;
+  --raised: #fbfbf9;
+  --line: rgba(20, 20, 22, 0.1);
+  --accent: #7d9c00;
+  --accent-ink: #5e7800;
+  --accent-soft: rgba(125, 156, 0, 0.1);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  background: var(--bg);
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0a0a0b;
+}
+
+/* Visible focus rings, WCAG AA-friendly */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Subtle grain overlay */
+.noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- Marquee --- */
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-track {
+  animation: marquee 36s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* --- Available-pill pulse --- */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* --- Floating gradient blobs (transform-only) --- */
+@keyframes drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(40px, -30px, 0) scale(1.08); }
+}
+
+@keyframes drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-36px, 26px, 0) scale(0.94); }
+}
+
+.blob-a { animation: drift-a 18s ease-in-out infinite; }
+.blob-b { animation: drift-b 22s ease-in-out infinite; }
+
+/* --- Skeleton shimmer --- */
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    100deg,
+    var(--surface) 30%,
+    var(--raised) 50%,
+    var(--surface) 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+/* --- Reduced motion: kill transform animation, keep opacity fades --- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track,
+  .blob-a,
+  .blob-b,
+  .pulse-dot,
+  .shimmer {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
