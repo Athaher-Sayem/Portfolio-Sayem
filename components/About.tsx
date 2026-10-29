@@ -6,6 +6,7 @@ import { MapPin, Languages, GraduationCap } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { Reveal } from "@/components/Reveal";
 import { Counter } from "@/components/Counter";
+import { withBase } from "@/lib/base";
 
 const quickFacts = [
   { icon: MapPin, label: "Based in", value: siteConfig.location },
@@ -43,7 +44,7 @@ export function About({ publicRepoCount }: { publicRepoCount: number }) {
               }}
             />
             <Image
-              src="/sayem.webp"
+              src={withBase("/sayem.webp")}
               alt={`Portrait of ${siteConfig.name}`}
               width={720}
               height={880}
