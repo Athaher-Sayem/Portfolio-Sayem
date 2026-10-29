@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://athaher-sayem.github.io/Portfolio-Sayem/sitemap.xml
