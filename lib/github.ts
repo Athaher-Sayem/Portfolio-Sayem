@@ -1,7 +1,8 @@
 import { siteConfig, languageColors } from "@/data/siteConfig";
 import type { GitHubRepo, Project } from "@/lib/types";
+import { withBase } from "@/lib/base";
 
-const SNAPSHOT_PATH = "/data/projects.json";
+const SNAPSHOT_PATH = withBase("/data/projects.json");
 const CACHE_KEY = "pf:github-repos:v1";
 const CACHE_TTL_MS = 60 * 60 * 1000; // revalidate every 1 hour
 

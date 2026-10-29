@@ -1,5 +1,4 @@
 """End-to-end checks against the exported static site (out/)."""
-from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from threading import Thread
@@ -9,15 +8,27 @@ from playwright.sync_api import sync_playwright, expect
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "out"
+PREFIX = "/Portfolio-Sayem"
+
+
+class PrefixHandler(SimpleHTTPRequestHandler):
+    """Serve out/ as if it lived under /Portfolio-Sayem/ (GitHub Pages layout)."""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, directory=str(OUT), **kwargs)
+
+    def translate_path(self, path):
+        if path.startswith(PREFIX):
+            path = path[len(PREFIX):] or "/"
+        return super().translate_path(path)
 
 
 @pytest.fixture(scope="module")
 def site():
     assert OUT.exists(), "Run `npm run build` first"
-    handler = partial(SimpleHTTPRequestHandler, directory=str(OUT))
-    server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    server = ThreadingHTTPServer(("127.0.0.1", 0), PrefixHandler)
     Thread(target=server.serve_forever, daemon=True).start()
-    yield f"http://127.0.0.1:{server.server_port}/"
+    yield f"http://127.0.0.1:{server.server_port}{PREFIX}/"
     server.shutdown()
 
 

@@ -3,6 +3,7 @@ import { Instrument_Serif, Inter } from "next/font/google";
 import { MotionConfig } from "framer-motion";
 import { siteConfig } from "@/data/siteConfig";
 import { CursorGlow } from "@/components/CursorGlow";
+import { withBase } from "@/lib/base";
 import "./globals.css";
 
 const instrument = Instrument_Serif({
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.shortName} — ${siteConfig.role}`,
     description: siteConfig.bio,
     type: "website",
-    images: [{ url: "/og.png", width: 1200, height: 630 }],
+    images: [{ url: withBase("/og.png"), width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
@@ -53,7 +54,7 @@ export default function RootLayout({
     <html lang="en" className={`${instrument.variable} ${inter.variable} noise`}>
       <head>
         <ThemeBootstrap />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
