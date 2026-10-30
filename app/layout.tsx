@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
+import { Instrument_Serif, Manrope } from "next/font/google";
 import { MotionConfig } from "framer-motion";
 import { siteConfig } from "@/data/siteConfig";
 import { CursorGlow } from "@/components/CursorGlow";
@@ -13,9 +13,9 @@ const instrument = Instrument_Serif({
   display: "swap",
 });
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -51,7 +51,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${instrument.variable} ${inter.variable} noise`}>
+    <html lang="en" className={`${instrument.variable} ${manrope.variable} noise`}>
       <head>
         <ThemeBootstrap />
         <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />

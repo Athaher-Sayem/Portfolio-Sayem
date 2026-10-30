@@ -28,7 +28,7 @@ export function About({ publicRepoCount }: { publicRepoCount: number }) {
           <span className="mr-3 text-accent">01</span>About
         </p>
         <h2 className="font-display text-[clamp(2.2rem,4.5vw,3.6rem)] leading-tight tracking-tight">
-          A builder’s mindset, <em className="text-accent">a learner’s curiosity.</em>
+          A builder’s mindset, <em className="text-accent-bright">a learner’s curiosity.</em>
         </h2>
       </Reveal>
 
@@ -40,7 +40,7 @@ export function About({ publicRepoCount }: { publicRepoCount: number }) {
               className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               style={{
                 background:
-                  "radial-gradient(360px at 50% 0%, var(--accent-soft), transparent 70%)",
+                  "radial-gradient(360px at 50% 0%, var(--color-accent-soft), transparent 70%)",
               }}
             />
             <Image
@@ -73,18 +73,18 @@ export function About({ publicRepoCount }: { publicRepoCount: number }) {
 
         <div>
           <Reveal>
-            <p className="text-lg leading-relaxed text-muted">
+            <p className="text-base leading-relaxed text-muted">
               I’m <strong className="text-fg">{siteConfig.name}</strong> — a full-stack
               engineer who cares about the whole arc of a product: understanding the
               problem, shaping the data, building a reliable API, and making the final
               interface feel effortless.
             </p>
-            <p className="mt-5 leading-relaxed text-muted">
+            <p className="mt-5 text-base leading-relaxed text-muted">
               The projects on this page span commerce platforms, news pipelines, RAG
               document chat systems, and ML experiments. Most are completely self-directed
               — built to learn, documented to teach, and shipped to be used.
             </p>
-            <p className="mt-5 leading-relaxed text-muted">
+            <p className="mt-5 text-base leading-relaxed text-muted">
               When I’m not engineering, I’m helping other students learn programming,
               networking, and algorithms as a lab teaching assistant — because the best
               way to deepen your own understanding is to explain it to someone else.

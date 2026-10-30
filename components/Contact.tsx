@@ -39,7 +39,7 @@ export function Contact() {
           <h2 className="font-display text-[clamp(2.6rem,7vw,5.2rem)] leading-[1.05] tracking-tight">
             Let’s build something
             <br />
-            <em className="text-accent">useful together.</em>
+            <em className="text-accent-bright">useful together.</em>
           </h2>
         </Reveal>
 
@@ -47,7 +47,7 @@ export function Contact() {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
               href={`mailto:${siteConfig.links.email}`}
-              className="group inline-flex items-center gap-3 rounded-full bg-accent px-7 py-4 font-semibold text-ink transition-transform duration-300 hover:scale-[1.03]"
+              className="group inline-flex items-center gap-3 rounded-full bg-accent px-7 py-4 font-semibold text-accent-ink transition-colors duration-300 hover:bg-accent-hover"
             >
               <Mail size={18} aria-hidden="true" />
               {siteConfig.links.email}

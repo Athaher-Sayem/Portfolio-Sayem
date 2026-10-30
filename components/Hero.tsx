@@ -36,7 +36,7 @@ function WordLine({ line }: { line: string }) {
           key={`${word}-${i}`}
           variants={wordVariants}
           className={`mr-[0.22em] inline-block ${
-            i === 0 && line.includes("useful") ? "text-accent" : ""
+            i === 0 && line.includes("useful") ? "text-accent-bright" : ""
           }`}
           aria-hidden="true"
         >
@@ -53,12 +53,12 @@ export function Hero() {
       {/* Atmosphere: low-opacity gradient blobs + dot grid */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="blob-a absolute -left-32 top-10 h-[420px] w-[420px] rounded-full bg-accent/[0.07] blur-3xl" />
-        <div className="blob-b absolute -right-24 bottom-0 h-[380px] w-[380px] rounded-full bg-indigo-500/10 blur-3xl" />
+        <div className="blob-b absolute -right-24 bottom-0 h-[380px] w-[380px] rounded-full bg-accent/[0.05] blur-3xl" />
         <div
           className="absolute inset-0 opacity-[0.25]"
           style={{
             backgroundImage:
-              "radial-gradient(circle, var(--line) 1px, transparent 1px)",
+              "radial-gradient(circle, var(--color-line) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
             maskImage: "radial-gradient(ellipse 70% 55% at 60% 20%, #000 20%, transparent 75%)",
             WebkitMaskImage:
@@ -78,7 +78,7 @@ export function Hero() {
           <span className="text-sm text-muted">{siteConfig.availability}</span>
         </motion.div>
 
-        <h1 className="font-display text-[clamp(3rem,9.5vw,7rem)] leading-[1.02] tracking-tight">
+        <h1 className="font-display text-[clamp(2.75rem,7.5vw,4.75rem)] leading-[1.04] tracking-tight">
           <WordLine line={siteConfig.heroLine1} />
           <WordLine line={siteConfig.heroLine2} />
         </h1>
@@ -87,7 +87,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-7 max-w-xl text-lg leading-relaxed text-muted"
+          className="mt-7 max-w-xl text-base leading-relaxed text-muted"
         >
           {siteConfig.bio}
         </motion.p>
@@ -105,7 +105,7 @@ export function Hero() {
             Get in Touch <ArrowRight size={17} aria-hidden="true" />
           </MagneticButton>
           <span className="flex items-center gap-2 text-sm text-faint">
-            <Sparkles size={14} aria-hidden="true" />
+            <Sparkles size={14} className="text-accent/70" aria-hidden="true" />
             {siteConfig.tagline}
           </span>
         </motion.div>

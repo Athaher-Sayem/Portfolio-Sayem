@@ -83,14 +83,18 @@ Everything you’re likely to change lives in **`data/siteConfig.ts`**:
 
 ### Swapping the accent color
 
-Change the hex in one place:
+The palette is defined as CSS tokens in `app/globals.css` (dark defaults in
+`:root`, light values under `html.light`). To swap the accent:
 
-1. `data/siteConfig.ts` → `accent: "#D4FF4F"` (used for runtime substrate).
-2. `app/globals.css` → `--accent`, `--accent-soft`, plus the light-mode
-   `--accent` / `--accent-soft` values under `html.light`.
+1. `data/siteConfig.ts` → `accent: "#C4A0F5"` (informational).
+2. `app/globals.css` → the `--color-accent` / `--color-accent-hover` /
+   `--color-accent-bright` / `--color-accent-soft` values in both `:root`
+   (dark) and `html.light`. Keep a dark-mode accent light enough for contrast
+   on the near-black background, and a light-mode accent rich enough for
+   contrast on `#F7F5FA`.
 
-The `--accent` variables drive all buttons, underlines, dots, glow layers and
-hover states — no component edits needed.
+The `--color-accent*` variables drive all buttons, underlines, dots, glow
+layers and hover states — no component edits needed.
 
 ## Deployment
 

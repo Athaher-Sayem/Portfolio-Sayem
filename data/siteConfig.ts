@@ -73,8 +73,9 @@ export const siteConfig: SiteConfig = {
   featured: ["E-COM_Store", "Phimart", "AI_News_Scraper"],
   /** Repos to always hide (e.g. the portfolio itself or archives). */
   exclude: ["Portfolio"],
-  /** Accent (electric lime). Swap hex values here and the whole site follows. */
-  accent: "#D4FF4F",
+  /** Accent — primary purple (dark mode). Swap the hex values here and in
+   *  app/globals.css (--color-accent dark + light) and the whole site follows. */
+  accent: "#C4A0F5",
   /** Repos that also have a public design-preview page in the gallery. */
   galleryPreviews: [
     "AI_Health_Checkup",

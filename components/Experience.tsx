@@ -46,7 +46,7 @@ export function Experience() {
                 <div className="relative">
                   <span
                     aria-hidden="true"
-                    className="absolute -left-8 top-1.5 h-3 w-3 rounded-full border-2 border-accent bg-ink"
+                    className="absolute -left-8 top-1.5 h-3 w-3 rounded-full border-2 border-accent bg-bg"
                   />
                   <p className="font-mono text-xs text-faint">{item.period}</p>
                   <h4 className="mt-1.5 font-display text-xl tracking-tight">{item.role}</h4>

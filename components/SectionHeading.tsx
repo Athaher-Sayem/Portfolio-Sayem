@@ -19,7 +19,7 @@ export function SectionHeading({
           {eyebrow}
         </p>
         <h2 className="font-display text-[clamp(2.2rem,4.5vw,3.6rem)] leading-tight tracking-tight">
-          {title} {accent ? <em className="text-accent">{accent}</em> : null}
+          {title} {accent ? <em className="text-accent-bright">{accent}</em> : null}
         </h2>
       </div>
     </Reveal>

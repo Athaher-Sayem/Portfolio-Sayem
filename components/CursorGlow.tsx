@@ -42,7 +42,7 @@ export function CursorGlow() {
       className="pointer-events-none fixed left-0 top-0 z-[1] hidden h-90 w-90 rounded-full opacity-40 blur-3xl [mask-image:radial-gradient(circle,#000_30%,transparent_70%)] lg:block"
       style={{
         background:
-          "radial-gradient(circle, var(--accent) 0%, transparent 65%)",
+          "radial-gradient(circle, var(--color-accent) 0%, transparent 65%)",
       }}
     />
   );

@@ -35,7 +35,7 @@ export function Skills() {
             <span className="mr-3 text-accent">02</span>Stack
           </p>
           <h2 className="font-display text-[clamp(2.2rem,4.5vw,3.6rem)] leading-tight tracking-tight">
-            Tools I reach for <em className="text-accent">every day.</em>
+            Tools I reach for <em className="text-accent-bright">every day.</em>
           </h2>
         </div>
       </Reveal>

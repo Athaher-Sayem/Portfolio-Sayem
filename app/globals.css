@@ -1,56 +1,77 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0a0a0b;
-  --color-surface: #111113;
-  --color-raised: #17171a;
-  --color-line: rgba(255, 255, 255, 0.08);
-  --color-soft: rgba(255, 255, 255, 0.06);
-  --color-text: #ecece9;
-  --color-muted: #9f9fa5;
-  --color-faint: #6d6d74;
-  --color-accent: #d4ff4f;
-  --color-accent-ink: #9cbb3c;
-  --color-accent-soft: rgba(212, 255, 79, 0.12);
+  /* ------------------------------------------------------------------ */
+  /* Premium aubergine palette (dark-first). Every token below is        */
+  /* overridden per-theme in :root / html.light with the same names,     */
+  /* so Tailwind utilities like bg-surface, text-accent, border-line     */
+  /* all follow the active theme at runtime.                             */
+  /* ------------------------------------------------------------------ */
+  --color-ink: #120e1c;            /* overlay chrome (nav blur, toast) */
+  --color-bg: #100d17;             /* main background — aubergine charcoal */
+  --color-surface: #191522;        /* card background */
+  --color-raised: #241d30;         /* secondary background */
+  --color-soft: rgba(197, 165, 245, 0.08); /* translucent chip surface */
+  --color-line: #393047;           /* borders */
+  --color-fg: #f5f0fa;             /* primary text */
+  --color-muted: #c9bed5;          /* secondary text */
+  --color-faint: #a99db6;          /* muted text */
+  --color-accent: #c4a0f5;         /* primary purple — interactive elements */
+  --color-accent-hover: #d8bbff;  /* purple hover */
+  --color-accent-bright: #d8bbff; /* highlight text (headline emphasis) */
+  --color-accent-ink: #22162e;    /* text placed on accent fills */
+  --color-accent-soft: rgba(196, 160, 245, 0.14); /* accent glow/tint */
 
   --font-display: var(--font-instrument), Georgia, serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Dark mode (default) */
 :root {
-  --bg: #0a0a0b;
-  --fg: #ecece9;
-  --muted: #9f9fa5;
-  --surface: #111113;
-  --raised: #17171a;
-  --line: rgba(255, 255, 255, 0.08);
-  --accent: #d4ff4f;
-  --accent-ink: #9cbb3c;
-  --accent-soft: rgba(212, 255, 79, 0.12);
+  --color-ink: #120e1c;
+  --color-bg: #100d17;
+  --color-surface: #191522;
+  --color-raised: #241d30;
+  --color-soft: rgba(197, 165, 245, 0.08);
+  --color-line: #393047;
+  --color-fg: #f5f0fa;
+  --color-muted: #c9bed5;
+  --color-faint: #a99db6;
+  --color-accent: #c4a0f5;
+  --color-accent-hover: #d8bbff;
+  --color-accent-bright: #d8bbff;
+  --color-accent-ink: #22162e;
+  --color-accent-soft: rgba(196, 160, 245, 0.14);
 }
 
+/* Light mode — warm, clean, luxurious */
 html.light {
-  --bg: #f5f4f0;
-  --fg: #141416;
-  --muted: #5c5c64;
-  --surface: #ffffff;
-  --raised: #fbfbf9;
-  --line: rgba(20, 20, 22, 0.1);
-  --accent: #7d9c00;
-  --accent-ink: #5e7800;
-  --accent-soft: rgba(125, 156, 0, 0.1);
+  --color-ink: #ffffff;
+  --color-bg: #f7f5fa;
+  --color-surface: #ffffff;
+  --color-raised: #eee9f4;
+  --color-soft: rgba(36, 29, 45, 0.06);
+  --color-line: #e2dbea;
+  --color-fg: #241d2d;
+  --color-muted: #62596d;
+  --color-faint: #756b80;
+  --color-accent: #7952a8;
+  --color-accent-hover: #68418f;
+  --color-accent-bright: #8b5fc3;
+  --color-accent-ink: #ffffff;
+  --color-accent-soft: rgba(121, 82, 168, 0.12);
 }
 
 * {
-  border-color: var(--line);
+  border-color: var(--color-line);
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
-  background: var(--bg);
+  background: var(--color-bg);
   color-scheme: dark;
 }
 
@@ -59,20 +80,20 @@ html.light {
 }
 
 body {
-  background: var(--bg);
-  color: var(--fg);
+  background: var(--color-bg);
+  color: var(--color-fg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--accent);
-  color: #0a0a0b;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 /* Visible focus rings, WCAG AA-friendly */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -135,9 +156,9 @@ body {
 .shimmer {
   background: linear-gradient(
     100deg,
-    var(--surface) 30%,
-    var(--raised) 50%,
-    var(--surface) 70%
+    var(--color-surface) 30%,
+    var(--color-raised) 50%,
+    var(--color-surface) 70%
   );
   background-size: 200% 100%;
   animation: shimmer 1.6s linear infinite;

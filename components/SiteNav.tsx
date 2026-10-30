@@ -171,7 +171,7 @@ export function SiteNav() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 font-semibold text-ink"
+                className="flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 font-semibold text-accent-ink"
               >
                 <FileText size={16} aria-hidden="true" />
                 View Resume
